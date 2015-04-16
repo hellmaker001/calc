@@ -50,6 +50,10 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+<<<<<<< HEAD
+=======
+    <Compile Include="Assignment-tests.cs" />
+>>>>>>> 7481e5f34c39fdf1c49e39b833257775c43ee000
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CheckBookTest.cs" />

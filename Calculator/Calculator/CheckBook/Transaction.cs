@@ -9,15 +9,20 @@ namespace Calculator.CheckBook
 {
     public class Transaction: BaseVM
     {
+<<<<<<< HEAD
         public int Id { get; set; }
 
         private CheckBookVM _VM;
         [System.ComponentModel.DataAnnotations.Schema.NotMapped]
+=======
+        private CheckBookVM _VM;
+>>>>>>> 7481e5f34c39fdf1c49e39b833257775c43ee000
         public CheckBookVM VM
         {
             get { return _VM; }
             set { _VM = value; OnPropertyChanged(); }
         }
+<<<<<<< HEAD
 
         public IEnumerable<Transaction> SimilarTransactions {
             get {
@@ -26,6 +31,8 @@ namespace Calculator.CheckBook
                        select t;
             }
         }
+=======
+>>>>>>> 7481e5f34c39fdf1c49e39b833257775c43ee000
         
         private DateTime _Date;
         public DateTime Date
@@ -41,10 +48,15 @@ namespace Calculator.CheckBook
             set { _Payee = value; OnPropertyChanged(); }
         }
 
+<<<<<<< HEAD
         public int AccountId { get; set; }
 
         private Account _Account;
         public virtual Account Account
+=======
+        private string _Account;
+        public string Account
+>>>>>>> 7481e5f34c39fdf1c49e39b833257775c43ee000
         {
             get { return _Account; }
             set { _Account = value; OnPropertyChanged(); if (VM != null) VM.OnPropertyChanged("Accounts"); }
@@ -67,6 +79,7 @@ namespace Calculator.CheckBook
 
     }
 
+<<<<<<< HEAD
     public class Account
     {
         public int Id { get; set; }
@@ -92,6 +105,10 @@ namespace Calculator.CheckBook
             set { _CurrentPage = value; OnPropertyChanged(); OnPropertyChanged("CurrentTransactions"); }
         }
 
+=======
+    public class CheckBookVM: BaseVM
+    {
+>>>>>>> 7481e5f34c39fdf1c49e39b833257775c43ee000
         private ObservableCollection<Transaction> _Transactions;
         public ObservableCollection<Transaction> Transactions
         {
@@ -101,6 +118,7 @@ namespace Calculator.CheckBook
 
         public IEnumerable<string> Accounts
         {
+<<<<<<< HEAD
             get { return Transactions.Select(t=> t.Account.Name).Distinct(); }
         }
 
@@ -170,10 +188,16 @@ namespace Calculator.CheckBook
                 }
             }; }
         }
+=======
+            get { return Transactions.Select(t=> t.Account).Distinct(); }
+        }
+        
+>>>>>>> 7481e5f34c39fdf1c49e39b833257775c43ee000
 
         public void Fill()
         {
             Transactions = new ObservableCollection<Transaction>( new[] {
+<<<<<<< HEAD
                 new Transaction { VM=this, Date= DateTime.Now.AddDays(-1), Account= new Account{ Name="Checking" }, Payee="Moshe", Amount=30, Tag="Food" },
                 new Transaction { VM=this, Date= DateTime.Now.AddDays(-3), Account= new Account{ Name="Checking" }, Payee="Tim", Amount=130, Tag="Auto" },
                 new Transaction { VM=this, Date= DateTime.Now.AddDays(-4), Account= new Account{ Name="Checking" }, Payee="Moshe", Amount=35, Tag="Food" },
@@ -186,6 +210,20 @@ namespace Calculator.CheckBook
                 new Transaction { VM=this, Date= DateTime.Now.AddDays(-5), Account= new Account{ Name="Credit" }, Payee="Bracha", Amount=35, Tag="Food" },
                 new Transaction { VM=this, Date= DateTime.Now.AddDays(-2), Account= new Account{ Name="Checking" }, Payee="Bracha", Amount=30.5, Tag="Food" },
                 new Transaction { VM=this, Date= DateTime.Now.AddDays(-6), Account= new Account{ Name="Credit" }, Payee="Tim", Amount=20, Tag="Auto" },
+=======
+                new Transaction { VM=this, Date= new DateTime(2015,04,05), Account="Checking", Payee="Moshe", Amount=30, Tag="Food" },
+                new Transaction { VM=this, Date= new DateTime(2015,04,06), Account="Checking", Payee="Tim", Amount=130, Tag="Auto" },
+                new Transaction { VM=this, Date= new DateTime(2015,04,04), Account="Checking", Payee="Moshe", Amount=35, Tag="Food" },
+                new Transaction { VM=this, Date= new DateTime(2015,04,07), Account="Checking", Payee="Bracha", Amount=35, Tag="Food" },
+                new Transaction { VM=this, Date= new DateTime(2015,04,06), Account="Checking", Payee="Tim", Amount=20, Tag="Auto" },
+                new Transaction { VM=this, Date= new DateTime(2015,04,05), Account="Credit", Payee="Moshe", Amount=30, Tag="Food" },
+                new Transaction { VM=this, Date= new DateTime(2015,04,06), Account="Credit", Payee="Bracha", Amount=30.5, Tag="Food" },
+                new Transaction { VM=this, Date= new DateTime(2015,04,07), Account="Credit", Payee="Tim", Amount=130, Tag="Auto" },
+                new Transaction { VM=this, Date= new DateTime(2015,04,05), Account="Credit", Payee="Moshe", Amount=35, Tag="Food" },
+                new Transaction { VM=this, Date= new DateTime(2015,04,01), Account="Credit", Payee="Bracha", Amount=35, Tag="Food" },
+                new Transaction { VM=this, Date= new DateTime(2015,04,05), Account="Checking", Payee="Bracha", Amount=30.5, Tag="Food" },
+                new Transaction { VM=this, Date= new DateTime(2015,04,03), Account="Credit", Payee="Tim", Amount=20, Tag="Auto" },
+>>>>>>> 7481e5f34c39fdf1c49e39b833257775c43ee000
             });
         }
     }

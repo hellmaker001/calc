@@ -78,7 +78,11 @@ namespace Calculator
         {
             get
             {
+<<<<<<< HEAD
                 return new DelegateCommand {
+=======
+                return new GenericCommand {
+>>>>>>> 7481e5f34c39fdf1c49e39b833257775c43ee000
                     ExecuteFunction = p => StrOperand += p
                 };
             }
@@ -182,7 +186,11 @@ namespace Calculator
         }
     }
 
+<<<<<<< HEAD
     public class DelegateCommand: ICommand
+=======
+    public class GenericCommand: ICommand
+>>>>>>> 7481e5f34c39fdf1c49e39b833257775c43ee000
     {
 
         public Predicate<object> CanExecuteFunction { get; set; }
@@ -196,6 +204,7 @@ namespace Calculator
                 return true;
         }
 
+<<<<<<< HEAD
         public event EventHandler CanExecuteChanged
         {
             add { CommandManager.RequerySuggested += value; }
@@ -204,6 +213,12 @@ namespace Calculator
         public void OnCanExecuteChanged()
         {
             CommandManager.InvalidateRequerySuggested();
+=======
+        public event EventHandler CanExecuteChanged;
+        public void OnCanExecuteChanged()
+        {
+            if (CanExecuteChanged != null) CanExecuteChanged(this, new EventArgs());
+>>>>>>> 7481e5f34c39fdf1c49e39b833257775c43ee000
         }
 
         public void Execute(object parameter)

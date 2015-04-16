@@ -23,13 +23,21 @@ namespace Calculator
             set { _Operations = value; OnPropertyChanged(); }
         }
 
+<<<<<<< HEAD
         DelegateCommand _Clear;
+=======
+        GenericCommand _Clear;
+>>>>>>> 7481e5f34c39fdf1c49e39b833257775c43ee000
         public ICommand Clear
         {
             get
             {
                 if (_Clear == null) {
+<<<<<<< HEAD
                     _Clear = new DelegateCommand {
+=======
+                    _Clear = new GenericCommand {
+>>>>>>> 7481e5f34c39fdf1c49e39b833257775c43ee000
                         ExecuteFunction = x => {
                             Operations.Clear();
                             Op = new BinaryOperation { };
